@@ -1,4 +1,4 @@
-# variables.tf - Backup
+# variables.tf - server
 
 variable "gcp_region" {
   type    = string

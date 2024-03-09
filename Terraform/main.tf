@@ -6,26 +6,22 @@ provider "google" {
 
 }
 
-resource "google_compute_firewall" "placeholder" {
-  name    = "placeholder-firewall"
+resource "google_compute_firewall" "server-ports" {
+  name    = "server-ports"
   network = "default"
 
   allow {
     protocol = "tcp"
-    ports    = ["3300"]  
+    ports    = ["80","443"]  
   }
 
   source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
 
-  target_tags = ["placeholder"]  # Apply this firewall rule to instances with this tag
+  target_tags = ["server-ports"]  # Apply this firewall rule to instances with this tag
 }
 
-module "cache" {
-  source               = "./modules/cache"
-
-  cache_instance_count = var.cache_instance_count
-  cache_data_disk_size_gb = var.cache_data_disk_size_gb
-  gcp_data_disk_type = var.gcp_data_disk_type
+module "server" {
+  source               = "./modules/server"
 
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_region = var.gcp_region
@@ -33,10 +29,10 @@ module "cache" {
   gcp_default_machine_image = var.gcp_default_machine_image
 }
 
-output "cache_reserved_external_ips" {
-  value = module.cache.cache_reserved_external_ips
+output "server_reserved_external_ip" {
+  value = module.server.server_reserved_external_ip
 }
 
-output "cache_reserved_internal_ips" {
-  value = module.cache.cache_reserved_internal_ips
+output "server_reserved_internal_ip" {
+  value = module.server.server_reserved_internal_ip
 }

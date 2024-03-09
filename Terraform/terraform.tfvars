@@ -4,13 +4,13 @@ cache_instance_count = 2
 
 cache_data_disk_size_gb = 10
 
-cache_data_disk_type = "pd-standard"
+cache_data_disk_type = "pd-ssd"
 
 gcp_data_disk_type = "pd-standard"
 
 gcp_credentials_path = ""
 
-gcp_project_id = ""
+gcp_project_id = "tar-cdn"
 
 gcp_region = "europe-west1-b"
 
