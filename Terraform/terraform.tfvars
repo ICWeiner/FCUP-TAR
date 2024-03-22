@@ -1,10 +1,10 @@
 # terraform.tfvars
 
-cache_instance_count = 2
+cache_node_instance_count = 2
 
-cache_data_disk_size_gb = 10
+cache_node_data_disk_size_gb = 10
 
-cache_data_disk_type = "pd-ssd"
+#cache_node_data_disk_type = "pd-ssd"
 
 gcp_data_disk_type = "pd-standard"
 

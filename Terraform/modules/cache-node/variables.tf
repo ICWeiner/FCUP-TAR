@@ -1,11 +1,4 @@
-variable "gcp_credentials_path" {
-  type    = string
-  description = "path to file containing json credetials"
-}
-
-variable "gcp_project_id" {
-  type    = string
-}
+# variables.tf - server
 
 variable "gcp_region" {
   type    = string
@@ -28,11 +21,9 @@ variable "cache_node_data_disk_size_gb" {
   type    = string
 }
 
+
 variable "cache_node_instance_count" {
   type    = string
 }
 
 
-variable "gcp_data_disk_type" {
-  type    = string
-}
