@@ -2,7 +2,6 @@ provider "google" {
 
   credentials = file(var.gcp_credentials_path)
   project     = var.gcp_project_id
-  region      = var.gcp_region
 
 }
 
@@ -45,8 +44,6 @@ module "dns" {
 
 
   gcp_default_machine_type = var.gcp_default_machine_type
-  gcp_region = var.gcp_region
-  gcp_region_network = var.gcp_region_network
   gcp_default_machine_image = var.gcp_default_machine_image
 }
 
@@ -55,8 +52,6 @@ module "cache" {
 
 
   gcp_default_machine_type = var.gcp_default_machine_type
-  gcp_region = var.gcp_region
-  gcp_region_network = var.gcp_region_network
   gcp_default_machine_image = var.gcp_default_machine_image
 }
 
@@ -64,8 +59,7 @@ module "cache" {
 module "server" {
   source               = "./modules/server"
 
+
   gcp_default_machine_type = var.gcp_default_machine_type
-  gcp_region = var.gcp_region
-  gcp_region_network = var.gcp_region_network
   gcp_default_machine_image = var.gcp_default_machine_image
 }

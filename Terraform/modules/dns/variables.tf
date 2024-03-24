@@ -1,13 +1,5 @@
 # variables.tf - dns
 
-variable "gcp_region" {
-  type    = string
-}
-
-variable "gcp_region_network" {
-  type    = string
-}
-
 variable "gcp_default_machine_type" {
   type    = string
 }
@@ -17,7 +9,12 @@ variable "gcp_default_machine_image"{
   description = "Default OS image for the VMs"
 }
 
-variable "dns_pop" {
+variable "dns_pop_region" {
   type = string
-  default = "europe-west-1-c"
+  default = "europe-west1"
+}
+
+variable "dns_pop_zone" {
+  type = string
+  default = "-c"
 }

@@ -13,11 +13,6 @@ variable "gcp_region" {
   default = "europe-west1-d"
 }
 
-variable "gcp_region_network" {
-  type    = string
-  default = "europe-west1"
-}
-
 variable "gcp_default_machine_type" {
   type    = string
   default = "e2-medium"

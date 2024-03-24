@@ -1,13 +1,5 @@
 # variables.tf - server
 
-variable "gcp_region" {
-  type    = string
-}
-
-variable "gcp_region_network" {
-  type    = string
-}
-
 variable "gcp_default_machine_type" {
   type    = string
 }
@@ -17,7 +9,12 @@ variable "gcp_default_machine_image"{
   description = "Default OS image for the VMs"
 }
 
-variable "server_pop" {
+variable "server_pop_region" {
   type = string
-  default = "asia-northeast-1-c"
+  default = "asia-northeast1"
+}
+
+variable "server_pop_zone" {
+  type = string
+  default = "-c"
 }

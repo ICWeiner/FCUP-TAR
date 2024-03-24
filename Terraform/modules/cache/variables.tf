@@ -1,13 +1,5 @@
 # variables.tf - server
 
-variable "gcp_region" {
-  type    = string
-}
-
-variable "gcp_region_network" {
-  type    = string
-}
-
 variable "gcp_default_machine_type" {
   type    = string
 }
@@ -33,7 +25,13 @@ variable "cache_instance_count" {
   default = "2"
 }
 
-variable "cache_pop" {
+variable "cache_pop_region" {
   type = list(string)
-  default = ["europe-west-1-c","me-central-1-c"]
+  default = ["europe-west1","me-central1"]
+  description = ""
+}
+
+variable "cache_pop_zone" {
+  type = list(string)
+  default = ["-c","-c"]
 }

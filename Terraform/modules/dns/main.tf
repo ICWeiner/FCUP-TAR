@@ -2,13 +2,13 @@
 
 resource "google_compute_address" "dns_reserved_external_ip" {
   name   = "dns-reserved-external-ip"
-  region = var.gcp_region_network
+  region = var.dns_pop_region
 }
 
 resource "google_compute_instance" "dns_instance" {
   name         = "dns"
   machine_type = var.gcp_default_machine_type
-  zone         = var.dns_pop
+  zone         = "${var.dns_pop_region}${var.dns_pop_zone}"
 
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
