@@ -17,11 +17,31 @@ resource "google_compute_firewall" "server-ports" {
 
   source_ranges = ["0.0.0.0/0"] 
 
-  target_tags = ["server-ports"]  # Apply this firewall rule to instances with this tag
+  target_tags = ["server-ports"]
 }
 
+resource "google_compute_firewall" "dns-ports" {
+  name    = "dns-ports"
+  network = "default"
+
+  allow {
+    protocol = "udp"
+    ports    = ["53"]  
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["53"]  
+  }
+
+  source_ranges = ["0.0.0.0/0"] 
+
+  target_tags = ["dns-ports"]
+}
+
+
 module "dns" {
-  source               = "./modules/dns"
+  source  = "./modules/dns"
 
 
   gcp_default_machine_type = var.gcp_default_machine_type

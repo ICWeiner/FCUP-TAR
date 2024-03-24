@@ -1,9 +1,14 @@
 # main.tf - server
 
+resource "google_compute_address" "server_reserved_external_ip" {
+  name   = "server-reserved-external-ip"
+  region = var.gcp_region_network
+}
+
 resource "google_compute_instance" "server_instance" {
   name         = "server"
   machine_type = var.gcp_default_machine_type
-  zone         = var.gcp_region
+  zone         = var.server_pop
 
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
@@ -18,6 +23,9 @@ resource "google_compute_instance" "server_instance" {
 
         network_interface {
                 network = "default"
+                access_config {
+                        nat_ip = google_compute_address.server_reserved_external_ip.address
+                }
 
         }
 

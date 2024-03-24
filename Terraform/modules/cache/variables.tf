@@ -32,3 +32,8 @@ variable "cache_instance_count" {
   type    = string
   default = "2"
 }
+
+variable "cache_pop" {
+  type = list(string)
+  default = ["europe-west-1-c","me-central-1-c"]
+}
