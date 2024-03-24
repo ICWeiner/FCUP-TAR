@@ -26,11 +26,15 @@ resource "google_compute_instance" "cache_instance" {
   tags = []
 
 
-  boot_disk {
-                initialize_params {
-                        image = var.gcp_default_machine_image
-                }
+boot_disk {
+        initialize_params {
+                image = var.gcp_default_machine_image
         }
+}
+
+attached_disk {
+    source = google_compute_disk.cache_data_disk[count.index].self_link
+  }
 
         network_interface {
                 network = "default"
