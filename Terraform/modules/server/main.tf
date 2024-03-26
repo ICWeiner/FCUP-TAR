@@ -1,5 +1,8 @@
 # main.tf - server
 
+## TODO automatizar este processo ? https://www.nginx.com/blog/setting-up-nginx/
+## NOTA: para isto funcionar, é preciso apagar o ficheiro default em  /etc/nginx/sites-enabled 
+
 resource "google_compute_address" "server_reserved_external_ip" {
   name   = "server-reserved-external-ip"
   region = var.server_pop_region
