@@ -35,3 +35,11 @@ variable "cache_pop_zone" {
   type = list(string)
   default = ["-c","-c"]
 }
+
+variable "gce_ssh_user" {
+  type = string
+}
+
+variable "ssh_pub_key_path" {
+  type = string
+}

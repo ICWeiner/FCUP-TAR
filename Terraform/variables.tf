@@ -15,7 +15,7 @@ variable "gcp_region" {
 
 variable "gcp_default_machine_type" {
   type    = string
-  default = "e2-medium"
+  default = "e2-small"
 }
 
 variable "gcp_default_machine_image"{
@@ -27,4 +27,12 @@ variable "gcp_default_machine_image"{
 variable "default_data_disk_type" {
   type    = string
   default = "pd-standard"
+}
+
+variable "gce_ssh_user" {
+  type = string
+}
+
+variable "ssh_pub_key_path" {
+  type = string
 }

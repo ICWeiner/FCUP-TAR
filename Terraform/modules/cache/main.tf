@@ -21,9 +21,13 @@ resource "google_compute_instance" "cache_instance" {
   machine_type = var.gcp_default_machine_type
   zone  = "${var.cache_pop_region[count.index]}${var.cache_pop_zone[count.index]}"
 
+   metadata = {
+    ssh-keys = "${var.gce_ssh_user}:${file(var.ssh_pub_key_path)}"
+  }
+
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
-  tags = []
+  tags = ["default-allow-ssh"]
 
 
 boot_disk {

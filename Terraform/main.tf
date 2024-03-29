@@ -43,6 +43,8 @@ module "dns" {
   source  = "./modules/dns"
 
 
+  ssh_pub_key_path = var.ssh_pub_key_path
+  gce_ssh_user = var.gce_ssh_user
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_default_machine_image = var.gcp_default_machine_image
 }
@@ -51,6 +53,8 @@ module "cache" {
   source               = "./modules/cache"
 
 
+  ssh_pub_key_path = var.ssh_pub_key_path
+  gce_ssh_user = var.gce_ssh_user
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_default_machine_image = var.gcp_default_machine_image
 }
@@ -60,6 +64,8 @@ module "server" {
   source               = "./modules/server"
 
 
+  ssh_pub_key_path = var.ssh_pub_key_path
+  gce_ssh_user = var.gce_ssh_user
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_default_machine_image = var.gcp_default_machine_image
 }

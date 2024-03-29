@@ -18,3 +18,11 @@ variable "server_pop_zone" {
   type = string
   default = "-c"
 }
+
+variable "gce_ssh_user" {
+  type = string
+}
+
+variable "ssh_pub_key_path" {
+  type = string
+}
