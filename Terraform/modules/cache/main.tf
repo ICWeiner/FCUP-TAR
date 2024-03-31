@@ -27,7 +27,7 @@ resource "google_compute_instance" "cache_instance" {
 
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
-  tags = ["default-allow-ssh"]
+  tags = ["default-allow-ssh","cache-ports"]
 
 
 boot_disk {

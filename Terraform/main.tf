@@ -38,6 +38,25 @@ resource "google_compute_firewall" "dns-ports" {
   target_tags = ["dns-ports"]
 }
 
+resource "google_compute_firewall" "cache-ports" {
+  name    = "cache-ports"
+  network = "default"
+
+  allow {
+    protocol = "udp"
+    ports    = ["8080"]  
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8080"]  
+  }
+
+  source_ranges = ["0.0.0.0/0"] 
+
+  target_tags = ["cache-ports"]
+}
+
 
 module "dns" {
   source  = "./modules/dns"

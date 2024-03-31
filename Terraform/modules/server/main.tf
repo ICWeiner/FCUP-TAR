@@ -19,7 +19,7 @@ resource "google_compute_instance" "server_instance" {
   
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
-  tags = ["server-ports"]
+  tags = ["server-ports","cache-ports","default-allow-ssh"]
 
 
   boot_disk {
